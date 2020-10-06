@@ -16,7 +16,6 @@
 
 - has_many :items
 - has_many :purchases
-- has_one :address
 
 ## Itemsテーブル　
 
@@ -43,27 +42,23 @@
 | ------ -| ---------- | ------------------------------ |
 | item    | references | null: false, foreign_key: true |
 | user    | references | null: false, foreign_key: true |
-| address | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- has_one :address
 
 ## Addressテーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| prefecture_code_id | integer    | null: false                    |
-| prefecture         | string     | null: false                    |
+| post_code          | integer    | null: false                    |
+| prefecture_id      | string     | null: false                    |
 | city               | string     | null: false                    |
 | other              | text       | nill: false                    |
 | building_name      | text       |                                |
-| user               | references | null: false, foreign_key: true |
 | purchase           | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
 - belongs_to :purchase
