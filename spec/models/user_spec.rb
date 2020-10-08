@@ -57,12 +57,12 @@ RSpec.describe User, type: :model do
       expect(user.errors.full_messages).to include("Password is invalid")
     end
     it "passwordが数字のみの場合は登録できない" do
-      user = User.new(password: 'A' + 'a' * 5)
+      user = User.new(password: '1' * 5)
       user.valid?
       expect(user.errors.full_messages).to include("Password is invalid")
     end
     it "passwordが英字のみの場合は登録できない" do
-      user = User.new(password: '1' * 5)
+      user = User.new(password: 'A' + 'a' * 5)
       user.valid?
       expect(user.errors.full_messages).to include("Password is invalid")
     end
