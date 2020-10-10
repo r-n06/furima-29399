@@ -31,27 +31,27 @@ RSpec.describe Item, type: :model do
       it 'カテゴリーの選択ができていなければ投稿できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
       it '商品状態の選択ができていなければ投稿できない' do
         @item.status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status must be other than 1")
+        expect(@item.errors.full_messages).to include('Status must be other than 1')
       end
       it '配送料の負担の選択ができていなければ投稿できない' do
         @item.postage_payer_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Postage payer must be other than 1")
+        expect(@item.errors.full_messages).to include('Postage payer must be other than 1')
       end
       it '発送元の地域の選択ができていなければ投稿できない' do
         @item.shipping_area_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping area must be other than 1")
+        expect(@item.errors.full_messages).to include('Shipping area must be other than 1')
       end
       it '発送までの日数の選択ができていなければ投稿できない' do
         @item.shipment_day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipment day must be other than 1")
+        expect(@item.errors.full_messages).to include('Shipment day must be other than 1')
       end
       it '価格の情報がないと投稿できない' do
         @item.price = nil
