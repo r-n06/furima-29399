@@ -3,7 +3,7 @@ FactoryBot.define do
     transient do
       person { Gimei.name }
     end
-    nickname {Faker::Name.name}
+    nickname { Faker::Name.name}
     email {Faker::Internet.free_email}
     password = Faker::Internet.password
     password {password}
