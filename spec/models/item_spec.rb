@@ -29,29 +29,29 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Introduction can't be blank")
       end
       it 'カテゴリーの選択ができていなければ投稿できない' do
-        @item.category_id = nil
+        @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank")
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
       it '商品状態の選択ができていなければ投稿できない' do
-        @item.status_id = nil
+        @item.status_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status can't be blank")
+        expect(@item.errors.full_messages).to include("Status must be other than 1")
       end
       it '配送料の負担の選択ができていなければ投稿できない' do
-        @item.postage_payer_id = nil
+        @item.postage_payer_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Postage payer can't be blank")
+        expect(@item.errors.full_messages).to include("Postage payer must be other than 1")
       end
       it '発送元の地域の選択ができていなければ投稿できない' do
-        @item.shipping_area_id = nil
+        @item.shipping_area_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping area can't be blank")
+        expect(@item.errors.full_messages).to include("Shipping area must be other than 1")
       end
       it '発送までの日数の選択ができていなければ投稿できない' do
-        @item.shipment_day_id = nil
+        @item.shipment_day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipment day can't be blank")
+        expect(@item.errors.full_messages).to include("Shipment day must be other than 1")
       end
       it '価格の情報がないと投稿できない' do
         @item.price = nil
@@ -62,6 +62,11 @@ RSpec.describe Item, type: :model do
         @item.price = '100'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
+      end
+      it '価格設定が300円〜9,999,999円でないと投稿できない' do
+        @item.price = '10000000'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
       end
       it '価格の入力が半角でないと投稿できない' do
         @item.price = '３００'
