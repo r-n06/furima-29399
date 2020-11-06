@@ -227,3 +227,12 @@
 .inc {
   font-size: 13px;
 }
+
+.image--list{
+  display: flex;
+}
+
+.image-preview{
+  height: 100px;
+  width: 150px;
+}
