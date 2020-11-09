@@ -26,10 +26,10 @@
 }
 
 .item-box-img {
-  height: 50vh;
-  width: 60vw;
-  min-height: 500px;
-  background-color: rgb(205, 202, 202);
+  height: 200px;
+  width: calc((100% - 50px) / 4);
+  margin: 10px 20px;
+  min-height: 300px;
   object-fit: contain;
 }
 
@@ -203,4 +203,26 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 23px;
+}
+
+.item-img-content {
+  width: 80%;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+/* タブレット表示時 */
+@media (max-width: 1024px){
+  .item-img-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .item-box-img {
+    height: 200px;
+    width: 300px;
+    margin: 5px 15px;
+  }
 }
